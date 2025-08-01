@@ -1,0 +1,53 @@
+[
+  {
+    "id": "dev001",
+    "name": "Raspberry Pi 4 Model B",
+    "price": "75",
+    "category": "microcontroller",
+    "specs": {
+      "ram": "4GB",
+      "usb_ports": "4",
+      "wireless": "Yes"
+    }
+  },
+  {
+    "id": "dev002",
+    "name": "Arduino Uno R3",
+    "price": "22",
+    "category": "microcontroller",
+    "specs": {
+      "digital_pins": "14",
+      "usb": "Yes"
+    }
+  },
+  {
+    "id": "dev003",
+    "name": "ESP32 IoT Dev Board",
+    "price": "10",
+    "category": "iot",
+    "specs": {
+      "wifi": "Yes",
+      "bluetooth": "Yes"
+    }
+  },
+  {
+    "id": "dev004",
+    "name": "Jetson Nano Dev Kit",
+    "price": "129",
+    "category": "ai",
+    "specs": {
+      "cuda_cores": "128",
+      "ram": "4GB"
+    }
+  },
+  {
+    "id": "dev005",
+    "name": "RoboKit STEM Set",
+    "price": "99",
+    "category": "learning",
+    "specs": {
+      "modules": "20+",
+      "platform": "blockly/python"
+    }
+  }
+]

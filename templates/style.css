@@ -1,0 +1,240 @@
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+            color: #ffffff;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .ide-container {
+            display: grid;
+            grid-template-areas: 
+                "toolbar toolbar toolbar"
+                "sidebar editor preview"
+                "ai-panel editor preview";
+            grid-template-rows: 60px 1fr 200px;
+            grid-template-columns: 300px 1fr 1fr;
+            height: 100vh;
+            gap: 2px;
+        }
+
+        .toolbar {
+            grid-area: toolbar;
+            background: linear-gradient(90deg, #2c2c2c, #3c3c3c);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid #444;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background: #252525;
+            padding: 15px;
+            overflow-y: auto;
+            border-right: 2px solid #444;
+        }
+
+        .editor-container {
+            grid-area: editor;
+            background: #1e1e1e;
+            position: relative;
+        }
+
+        .preview-container {
+            grid-area: preview;
+            background: #000;
+            position: relative;
+            border-left: 2px solid #444;
+        }
+
+        .ai-panel {
+            grid-area: ai-panel;
+            background: #2a2a2a;
+            padding: 15px;
+            border-top: 2px solid #444;
+            overflow-y: auto;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .device-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .device-card {
+            background: #333;
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .device-card:hover {
+            border-color: #4CAF50;
+            background: #404040;
+        }
+
+        .device-card.selected {
+            border-color: #2196F3;
+            background: #1a4d72;
+        }
+
+        .sensor-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sensor-item {
+            background: #333;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .sensor-item:hover {
+            background: #404040;
+        }
+
+        .sensor-status {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #666;
+        }
+
+        .sensor-status.connected {
+            background: #4CAF50;
+        }
+
+        .ai-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .ai-tool-btn {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            border: none;
+            color: white;
+            padding: 12px 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+
+        .ai-tool-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .prompt-input {
+            width: 100%;
+            background: #333;
+            border: 2px solid #444;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .prompt-input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #45a049;
+        }
+
+        .btn-secondary {
+            background: #2196F3;
+        }
+
+        .btn-secondary:hover {
+            background: #1976D2;
+        }
+
+        #meshCanvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ai-response {
+            background: #1a1a1a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #333;
+            border-radius: 50%;
+            border-top-color: #4CAF50;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .mesh-controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+        }
+
+        .mesh-btn {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }

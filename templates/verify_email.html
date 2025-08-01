@@ -1,0 +1,16 @@
+<!-- templates/verify_email.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Verification</title>
+</head>
+<body>
+    <h2>Email Verification</h2>
+    <p>If you have received a verification link, click below:</p>
+    <form action="/verify-email" method="POST">
+        <input type="text" name="token" placeholder="Enter your verification token" required><br>
+        <button type="submit">Verify Email</button>
+    </form>
+</body>
+</html>
+

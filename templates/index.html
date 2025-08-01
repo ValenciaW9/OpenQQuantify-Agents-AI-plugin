@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OpenQQuantify AI Agents</title>
+</head>
+<body>
+  <h1>🤖 AI Assistant</h1>
+
+  <label>Task:</label><br>
+  <input id="task" placeholder="e.g. Recommend device under $100"><br><br>
+
+  <label>Agent:</label><br>
+  <select id="agent">
+    <option value="tutoring">Tutoring</option>
+    <option value="resume">Resume</option>
+    <option value="startup">Startup</option>
+  </select><br><br>
+
+  <button onclick="sendTask()">Send Task</button>
+
+  <h3>Response:</h3>
+  <pre id="output"></pre>
+
+  <script>
+    async function sendTask() {
+      const agent = document.getElementById("agent").value;
+      const task = document.getElementById("task").value;
+      const res = await fetch("http://localhost:5000/delegate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ agent, task, parameters: {} })
+      });
+      const data = await res.json();
+      document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+    }
+
+</script>
+const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+recognition.onresult = function(event) {
+  document.getElementById("task").value = event.results[0][0].transcript;
+}
+function startListening() {
+  recognition.start();
+}
+
+function saveScene() {
+  const sceneDAta = JSON.stringify(scene.toJSON());
+  fetch('/save-scene', {
+    method: 'POST',
+    body: JSON.stringify({ scene: sceneData }),
+    headers: { 'Content-Type': 'application/json' }
+  });
+}
+
+function loadScene() {
+  fetch('/load-scene')
+  .then(res => res.json())
+  .then(data => {
+   const loader = new Three.OBjectLoader():
+   const loadScene = loader.parse(JSON.parse(data.scene));
+  });
+
+}
+
+
+</script>
+<button onclick="startListening()">🎙️ Speak</button>
+
+  </script>
+</body>
+</html>

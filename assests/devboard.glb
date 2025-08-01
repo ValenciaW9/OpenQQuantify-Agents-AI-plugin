@@ -1,0 +1,4 @@
+const loader = new GLTFLoader();
+loader.load('assets/meshes/devboard.glb', function (gltf) {
+    scene.add(gltf.scene);
+});
